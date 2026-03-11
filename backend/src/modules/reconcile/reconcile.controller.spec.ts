@@ -1,8 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { ReconcileController } from './reconcile.controller';
-import { ReconcileService } from './reconcile.service';
+import { Test, TestingModule } from "@nestjs/testing";
+import { ReconcileController } from "./reconcile.controller";
+import { ReconcileService } from "./reconcile.service";
 
-describe('ReconcileController', () => {
+describe("ReconcileController", () => {
   let controller: ReconcileController;
 
   beforeEach(async () => {
@@ -14,7 +14,7 @@ describe('ReconcileController', () => {
     controller = module.get<ReconcileController>(ReconcileController);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(controller).toBeDefined();
   });
 });

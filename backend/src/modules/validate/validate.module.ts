@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
-import { ValidateService } from './validate.service';
-import { ValidateController } from './validate.controller';
+import { Module } from "@nestjs/common";
+import { ValidateService } from "./validate.service";
+import { ValidateController } from "./validate.controller";
 
 @Module({
   controllers: [ValidateController],

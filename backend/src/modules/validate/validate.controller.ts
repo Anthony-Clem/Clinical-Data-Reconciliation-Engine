@@ -1,7 +1,9 @@
-import { Controller } from '@nestjs/common';
-import { ValidateService } from './validate.service';
+import { Controller, UseGuards } from "@nestjs/common";
+import { ValidateService } from "./validate.service";
+import { ApiKeyGuard } from "@/common/guards/api-key.guard";
 
-@Controller('validate')
+@UseGuards(ApiKeyGuard)
+@Controller("validate")
 export class ValidateController {
   constructor(private readonly validateService: ValidateService) {}
 }
