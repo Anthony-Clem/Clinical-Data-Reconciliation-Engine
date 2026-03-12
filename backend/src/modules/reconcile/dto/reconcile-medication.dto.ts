@@ -20,7 +20,7 @@ export class PatientContextDto {
   recen_labs!: object;
 }
 
-enum SourceReliabilityEnum {
+export enum SourceReliabilityEnum {
   HIGH = "high",
   MEDIUM = "medium",
   LOW = "low",
@@ -50,7 +50,7 @@ export class ReconcileMedicationRequestDto {
   sources!: SourceDto[];
 }
 
-enum ClinicalSafetyCheckEnum {
+export enum ClinicalSafetyCheckEnum {
   PASSED = "PASSED",
   REVIEW = "REVIEW",
 }
