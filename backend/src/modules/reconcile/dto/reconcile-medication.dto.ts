@@ -17,7 +17,7 @@ export class PatientContextDto {
   conditions!: string[];
 
   @IsObject()
-  recentLabs!: object;
+  recen_labs!: object;
 }
 
 enum SourceReliabilityEnum {
@@ -36,15 +36,15 @@ export class SourceDto {
   medication!: string;
 
   @IsDate()
-  lastUpdated!: Date;
+  last_updated!: Date;
 
   @IsEnum(SourceReliabilityEnum)
-  sourceReliability!: SourceReliabilityEnum;
+  source_reliability!: SourceReliabilityEnum;
 }
 
 export class ReconcileMedicationRequestDto {
   @IsObject()
-  patientContext!: PatientContextDto;
+  patient_context!: PatientContextDto;
 
   @IsArray()
   sources!: SourceDto[];
@@ -52,22 +52,22 @@ export class ReconcileMedicationRequestDto {
 
 enum ClinicalSafetyCheckEnum {
   PASSED = "PASSED",
-  FAILED = "FAILED",
+  REVIEW = "REVIEW",
 }
 
 export class ReconcileMedicationResponseDto {
   @Expose()
-  reconciledMedication!: string;
+  reconciled_medication!: string;
 
   @Expose()
-  confidenceScore!: number;
+  confidence_score!: number;
 
   @Expose()
   reasoning!: string;
 
   @Expose()
-  recommededActions!: string[];
+  recommeded_actions!: string[];
 
   @Expose()
-  clinicalSafetyCheck!: ClinicalSafetyCheckEnum;
+  clinical_safety_check!: ClinicalSafetyCheckEnum;
 }

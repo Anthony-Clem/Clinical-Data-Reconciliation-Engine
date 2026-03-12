@@ -1,4 +1,4 @@
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 import { IsArray, IsDate, IsObject } from "class-validator";
 
 export class ValidateDataQualityRequestDto {
@@ -15,10 +15,11 @@ export class ValidateDataQualityRequestDto {
   conditions!: string[];
 
   @IsObject()
-  vitalSigns!: object;
+  vital_signs!: object;
 
   @IsDate()
-  lastUpdated!: Date;
+  @Type(() => Date)
+  last_updated!: Date;
 }
 
 export class BreakdownDto {
@@ -32,7 +33,7 @@ export class BreakdownDto {
   timeliness!: number;
 
   @Expose()
-  clinicalPlausibility!: number;
+  clinical_plausibility!: number;
 }
 
 enum SeverityEnum {
@@ -54,11 +55,11 @@ export class IssuesDetectedDto {
 
 export class ValidateDataQualityResponseDto {
   @Expose()
-  overallScore!: number;
+  overall_score!: number;
 
   @Expose()
   breakdown!: BreakdownDto;
 
   @Expose()
-  issuesDetected!: IssuesDetectedDto[];
+  issues_detected!: IssuesDetectedDto[];
 }
