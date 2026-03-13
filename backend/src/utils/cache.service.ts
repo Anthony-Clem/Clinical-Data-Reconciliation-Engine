@@ -16,6 +16,7 @@ import stringify from "fast-json-stable-stringify";
 export class CacheService {
   constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}
 
+  // generate the cache key (the same exact same request generates the exact same key)
   generateCacheKey(
     prefix: "reconcile" | "validate",
     request: ReconcileMedicationRequestDto | ValidateDataQualityRequestDto,
@@ -25,6 +26,7 @@ export class CacheService {
     return `${prefix}:${hash}`;
   }
 
+  // set key and value in cache, no data nessesary to return
   async set(
     key: string,
     value: ReconcileMedicationResponseDto | ValidateDataQualityResponseDto,
@@ -32,6 +34,7 @@ export class CacheService {
     await this.cache.set(key, value);
   }
 
+  // get value from cache using the key (can define the type expected from cache)
   async get<T>(key: string): Promise<T | undefined> {
     return this.cache.get<T>(key);
   }

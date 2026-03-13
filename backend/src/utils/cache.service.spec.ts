@@ -7,15 +7,15 @@ import {
   mockReconcileResponseDto,
 } from "@/common/mocks/reconcile.mock";
 
+// mocking the managers functions
 const mockCacheManager = {
   get: jest.fn(),
   set: jest.fn(),
 };
 
 describe("CacheService", () => {
+  // instantiating the service prior to running the test
   let service: CacheService;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let cache: Cache;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -26,13 +26,13 @@ describe("CacheService", () => {
     }).compile();
 
     service = module.get<CacheService>(CacheService);
-    cache = module.get<Cache>(CACHE_MANAGER);
   });
 
   afterAll(() => {
     jest.clearAllMocks();
   });
 
+  // this test shows that if a duplicate req is made the keys will be identical so if in cache it can be found
   it("should generate consistent cache keys for the same input", () => {
     const dto = mockReconcileRequestDto;
     const key1 = service.generateCacheKey("reconcile", dto);
@@ -41,6 +41,7 @@ describe("CacheService", () => {
     expect(key1).toEqual(key2);
   });
 
+  // this ensures that the value is being stored in cache
   it("should call cache.set when storing a value", async () => {
     const key = "test-key";
     const value = mockReconcileResponseDto;
@@ -51,6 +52,7 @@ describe("CacheService", () => {
     expect(mockCacheManager.set).toHaveBeenCalledWith(key, value);
   });
 
+  // this validates that the data we store is the same data we get back when retrieving with the key
   it("should call cache.get and return the stored value", async () => {
     const key = "test-key";
     const value = { hello: "world" };
@@ -62,6 +64,7 @@ describe("CacheService", () => {
     expect(result).toEqual(value);
   });
 
+  // this ensures that so long as the prefixes are different the keys will be unique e.g. service keys do not overlap
   it("should generate different keys for different prefixes despite same input", () => {
     const dto = mockReconcileRequestDto;
 

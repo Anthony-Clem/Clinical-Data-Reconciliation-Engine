@@ -2,6 +2,7 @@ import { ReconcileMedicationRequestDto } from "@/modules/reconcile/dto/reconcile
 import { ValidateDataQualityRequestDto } from "@/modules/validate/dto/validate-data-quality.dto";
 import { Injectable } from "@nestjs/common";
 
+// prompt functions that stringify the dto/json to feed to gemini
 @Injectable()
 export class Prompts {
   reconcileMedicationPrompt(dto: ReconcileMedicationRequestDto) {

@@ -5,6 +5,7 @@ import { ConfigService } from "@nestjs/config";
 
 const mockGenerateContent = jest.fn();
 
+// mocking the packing ensuring we can all it in tesrs
 jest.mock("@google/genai", () => {
   return {
     GoogleGenAI: jest.fn().mockImplementation(() => ({
@@ -19,6 +20,7 @@ describe("GeminiService", () => {
   let service: GeminiService;
 
   const mockConfigService = {
+    // must be getOrThrow since thats what was used in the guard
     getOrThrow: jest.fn().mockReturnValue("fake-api-key"),
   };
 
@@ -54,6 +56,7 @@ describe("GeminiService", () => {
     expect(result).toEqual({ foo: "bar" });
   });
 
+  // ensures the proper exception is throw in the case of no text return
   it("should throw InternalServerErrorException if API returns no text", async () => {
     const prompt = "test prompt";
     mockGenerateContent.mockResolvedValue({ text: null });
