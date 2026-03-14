@@ -10,7 +10,7 @@ export const mockReconcileRequestDto: ReconcileMedicationRequestDto = {
   patient_context: {
     age: 67,
     conditions: ["Type 2 Diabetes", "Hypertension"],
-    recen_labs: {
+    recent_labs: {
       eGFR: 45,
       cholesterol: 180,
     },

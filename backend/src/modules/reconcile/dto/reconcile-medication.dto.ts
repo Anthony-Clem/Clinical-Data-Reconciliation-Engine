@@ -1,4 +1,4 @@
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 import {
   IsArray,
   IsDate,
@@ -17,7 +17,7 @@ export class PatientContextDto {
   conditions!: string[];
 
   @IsObject()
-  recen_labs!: object;
+  recent_labs!: object;
 }
 
 export enum SourceReliabilityEnum {
@@ -36,6 +36,7 @@ export class SourceDto {
   medication!: string;
 
   @IsDate()
+  @Type(() => Date)
   last_updated!: Date;
 
   @IsEnum(SourceReliabilityEnum)

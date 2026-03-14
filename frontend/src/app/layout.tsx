@@ -27,9 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={cn("font-sans h-full overflow-hidden", inter.variable)}
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased h-full overflow-hidden`}
       >
         <Providers>{children}</Providers>
       </body>

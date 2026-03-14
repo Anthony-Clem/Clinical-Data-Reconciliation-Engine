@@ -1,9 +1,43 @@
 import { Expose, Type } from "class-transformer";
-import { IsArray, IsDate, IsObject } from "class-validator";
+import {
+  IsArray,
+  IsDate,
+  IsEnum,
+  IsNotEmpty,
+  IsObject,
+  IsString,
+} from "class-validator";
+
+export enum GenderEnum {
+  MALE = "M",
+  FEMALE = "F",
+}
+
+export class DemographicsDto {
+  @IsString()
+  @IsNotEmpty()
+  name!: string;
+
+  @IsDate()
+  @Type(() => Date)
+  dob!: Date;
+
+  @IsEnum(GenderEnum)
+  gender!: GenderEnum;
+}
+
+export class VitalSignsDto {
+  @IsString()
+  @IsNotEmpty()
+  blood_pressure!: string;
+  @IsString()
+  @IsNotEmpty()
+  heart_rate!: string;
+}
 
 export class ValidateDataQualityRequestDto {
   @IsObject()
-  demographics!: object;
+  demographics!: DemographicsDto;
 
   @IsArray()
   medications!: string[];
@@ -15,7 +49,7 @@ export class ValidateDataQualityRequestDto {
   conditions!: string[];
 
   @IsObject()
-  vital_signs!: object;
+  vital_signs!: VitalSignsDto;
 
   @IsDate()
   @Type(() => Date)
