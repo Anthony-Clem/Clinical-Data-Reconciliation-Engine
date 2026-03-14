@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "start": "npm start --prefix backend",
-    "heroku-postbuild": "npm install --prefix backend && npm run prisma:generate --prefix backend && npm run build --prefix backend"
+    "heroku-postbuild": "npm install --prefix backend && npm run build --prefix backend"
   }
 }
