@@ -16,3 +16,8 @@ bootstrap().catch((error) => {
   Logger.error("Error starting server", error);
   process.exit(1);
 });
+process.on("uncaughtException", (error) => {
+  console.error("UNCAUGHT EXCEPTION:", error.message);
+  console.error("STACK:", error.stack);
+  process.exit(1);
+});
