@@ -1,7 +1,7 @@
 {
   "name": "root",
   "scripts": {
-    "build": "cd backend && npm install --include=dev && npm run build",
+    "heroku-postbuild": "cd backend && npm install --include=dev && npm run build",
     "start": "cd backend && node dist/main"
   }
 }
