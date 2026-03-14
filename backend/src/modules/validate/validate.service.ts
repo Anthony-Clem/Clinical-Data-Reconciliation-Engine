@@ -3,9 +3,9 @@ import {
   ValidateDataQualityRequestDto,
   ValidateDataQualityResponseDto,
 } from "./dto/validate-data-quality.dto";
-import { Prompts } from "@/common/constants/prompts.constant";
-import { GeminiService } from "@/utils/gemini.service";
-import { CacheService } from "@/utils/cache.service";
+import { Prompts } from "../../common/constants/prompts.constant";
+import { GeminiService } from "../../utils/gemini.service";
+import { CacheService } from "../../utils/cache.service";
 import { plainToInstance } from "class-transformer";
 
 @Injectable()

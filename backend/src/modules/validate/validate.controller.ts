@@ -1,4 +1,4 @@
-import { ApiKeyGuard } from "@/common/guards/api-key.guard";
+import { ApiKeyGuard } from "../../common/guards/api-key.guard";
 import { Body, Controller, Post, UseGuards } from "@nestjs/common";
 import {
   ValidateDataQualityRequestDto,

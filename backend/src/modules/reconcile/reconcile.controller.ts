@@ -1,10 +1,10 @@
 import { Body, Controller, Post, UseGuards } from "@nestjs/common";
 import { ReconcileService } from "./reconcile.service";
-import { ApiKeyGuard } from "@/common/guards/api-key.guard";
 import {
   ReconcileMedicationRequestDto,
   ReconcileMedicationResponseDto,
 } from "./dto/reconcile-medication.dto";
+import { ApiKeyGuard } from "../../common/guards/api-key.guard";
 
 // protecting the route with the api key guard
 @UseGuards(ApiKeyGuard)

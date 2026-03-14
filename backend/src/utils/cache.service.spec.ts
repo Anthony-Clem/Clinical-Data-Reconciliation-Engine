@@ -5,7 +5,11 @@ import { CACHE_MANAGER } from "@nestjs/cache-manager";
 import {
   mockReconcileRequestDto,
   mockReconcileResponseDto,
-} from "@/common/mocks/reconcile.mock";
+} from "../common/mocks/reconcile.mock";
+import {
+  ReconcileMedicationRequestDto,
+  type ReconcileMedicationResponseDto,
+} from "../modules/reconcile/dto/reconcile-medication.dto";
 
 // mocking the managers functions
 const mockCacheManager = {
@@ -34,7 +38,7 @@ describe("CacheService", () => {
 
   // this test shows that if a duplicate req is made the keys will be identical so if in cache it can be found
   it("should generate consistent cache keys for the same input", () => {
-    const dto = mockReconcileRequestDto;
+    const dto: ReconcileMedicationRequestDto = mockReconcileRequestDto;
     const key1 = service.generateCacheKey("reconcile", dto);
     const key2 = service.generateCacheKey("reconcile", dto);
 
@@ -44,7 +48,7 @@ describe("CacheService", () => {
   // this ensures that the value is being stored in cache
   it("should call cache.set when storing a value", async () => {
     const key = "test-key";
-    const value = mockReconcileResponseDto;
+    const value: ReconcileMedicationResponseDto = mockReconcileResponseDto;
     mockCacheManager.set.mockResolvedValue(undefined);
 
     await service.set(key, value);

@@ -3,9 +3,9 @@ import {
   ReconcileMedicationRequestDto,
   ReconcileMedicationResponseDto,
 } from "./dto/reconcile-medication.dto";
-import { Prompts } from "@/common/constants/prompts.constant";
-import { GeminiService } from "@/utils/gemini.service";
-import { CacheService } from "@/utils/cache.service";
+import { Prompts } from "../../common/constants/prompts.constant";
+import { GeminiService } from "../../utils/gemini.service";
+import { CacheService } from "../../utils/cache.service";
 import { plainToInstance } from "class-transformer";
 
 @Injectable()

@@ -2,8 +2,8 @@ import {
   ClinicalSafetyCheckEnum,
   ReconcileMedicationRequestDto,
   ReconcileMedicationResponseDto,
-} from "@/modules/reconcile/dto/reconcile-medication.dto";
-import { SourceReliabilityEnum } from "@/modules/reconcile/dto/reconcile-medication.dto";
+} from "../../modules/reconcile/dto/reconcile-medication.dto";
+import { SourceReliabilityEnum } from "../../modules/reconcile/dto/reconcile-medication.dto";
 
 // mock data for tests
 export const mockReconcileRequestDto: ReconcileMedicationRequestDto = {

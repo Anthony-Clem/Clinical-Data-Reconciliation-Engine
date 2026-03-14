@@ -1,11 +1,11 @@
 import {
   ReconcileMedicationRequestDto,
   ReconcileMedicationResponseDto,
-} from "@/modules/reconcile/dto/reconcile-medication.dto";
+} from "../modules/reconcile/dto/reconcile-medication.dto";
 import {
   ValidateDataQualityRequestDto,
   ValidateDataQualityResponseDto,
-} from "@/modules/validate/dto/validate-data-quality.dto";
+} from "../modules/validate/dto/validate-data-quality.dto";
 import { CACHE_MANAGER } from "@nestjs/cache-manager";
 import { Inject, Injectable } from "@nestjs/common";
 import { type Cache } from "cache-manager";
