@@ -5,7 +5,6 @@ import Link from "next/link";
 const Sidebar = () => {
   return (
     <aside className="w-64 border-r bg-slate-50 flex flex-col h-full">
-      {/* Product header */}
       <div className="px-5 py-5 border-b">
         <p className="text-xs uppercase tracking-wide text-slate-500 font-medium">
           Clinical System
@@ -16,7 +15,6 @@ const Sidebar = () => {
         </h1>
       </div>
 
-      {/* Navigation */}
       <nav className="flex flex-col px-3 py-4 gap-1">
         <p className="text-xs uppercase text-slate-400 font-semibold px-3 mb-2">
           Tools
@@ -38,8 +36,6 @@ const Sidebar = () => {
           Validate Data Quality
         </Link>
       </nav>
-
-      {/* Footer */}
       <div className="mt-auto px-5 py-4 border-t text-xs text-slate-400">
         v0.1 • Internal Tool
       </div>
