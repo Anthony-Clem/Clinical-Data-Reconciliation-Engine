@@ -77,7 +77,7 @@ Gemini was chosen for several reasons:
 
 ### Monorepo Structure
 
-The frontend and backend live in the same repository. This simplifies development and deployment coordination but means the repo is larger and build configuration is more complex, as seen with the Heroku/Render deployment setup.
+The frontend and backend live in the same repository. This simplifies development and deployment coordination but means the repo is larger and build configuration is more complex, as seen with the Render deployment setup.
 
 ### NestJS for the Backend
 
@@ -97,7 +97,7 @@ The reconciliation logic weights medication sources by their stated reliability 
 
 ### No Database
 
-There is no persistent storage in this version. All state is ephemeral. This keeps the architecture simple but means reconciliation results and audit logs are not stored. Adding a database would be the first step toward a production-ready system.
+There is no persistent storage in this version. All state is ephemeral. This keeps the architecture simple but means reconciliation results and audit logs are not stored. Adding a database would be the first step toward a production-ready system. Note a database is completely unnecessary for this version of the product as we are not performing CRUD operations.
 
 ---
 
