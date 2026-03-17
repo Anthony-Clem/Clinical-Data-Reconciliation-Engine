@@ -3,9 +3,9 @@ import { z } from "zod";
 export const SourceReliabilityEnum = z.enum(["high", "medium", "low"]);
 
 export const SourceSchema = z.object({
-  system: z.string().min(1),
-  medication: z.string().min(1),
-  last_updated: z.string().min(1),
+  system: z.string().min(1, "System is required for source"),
+  medication: z.string().min(1, "Medication is required for source"),
+  last_updated: z.string().min(1, "Last updated is required"),
   source_reliability: SourceReliabilityEnum,
 });
 
